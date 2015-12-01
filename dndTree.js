@@ -1,5 +1,5 @@
 // Get JSON data
-treeJSON = d3.json("flare.json", function(error, treeData) {
+treeJSON = d3.json("security.json", function(error, treeData) {
 
     // Calculate total nodes, max label length
     var totalNodes = 0;
@@ -335,6 +335,10 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
         centerNode(d);
     }
 
+    function textclick(d) {
+        window.open(d.url);
+    }
+
     function update(source) {
         // Compute the new height, function counts total children of root node and sets tree height accordingly.
         // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
@@ -427,7 +431,7 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
             })
             .text(function(d) {
                 return d.name;
-            });
+            }).on('click', textclick);;
 
         // Change the circle fill depending on whether it has children and is collapsed
         node.select("circle.nodeCircle")
