@@ -25,7 +25,7 @@ treeJSON = d3.json("security.json", function(error, treeData) {
     // define a d3 diagonal projection for use by the node paths later on.
     var diagonal = d3.svg.diagonal()
         .projection(function(d) {
-            return [d.y, d.x];
+            return [d.x, d.y];
         });
 
     // A recursive helper function for performing some setup by walking through all nodes
@@ -382,7 +382,7 @@ treeJSON = d3.json("security.json", function(error, treeData) {
             .call(dragListener)
             .attr("class", "node")
             .attr("transform", function(d) {
-                return "translate(" + source.y0 + "," + source.x0 + ")";
+                return "translate(" + source.x0 + "," + source.y0 + ")";
             })
             .on('click', click);
 
@@ -444,7 +444,7 @@ treeJSON = d3.json("security.json", function(error, treeData) {
         var nodeUpdate = node.transition()
             .duration(duration)
             .attr("transform", function(d) {
-                return "translate(" + d.y + "," + d.x + ")";
+                return "translate(" + d.x + "," + d.y + ")";
             });
 
         // Fade the text in
@@ -455,7 +455,7 @@ treeJSON = d3.json("security.json", function(error, treeData) {
         var nodeExit = node.exit().transition()
             .duration(duration)
             .attr("transform", function(d) {
-                return "translate(" + source.y + "," + source.x + ")";
+                return "translate(" + source.x + "," + source.y + ")";
             })
             .remove();
 
