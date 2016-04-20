@@ -1,5 +1,5 @@
 // Get JSON data
-treeJSON = d3.json("security.json", function(error, treeData) {
+treeJSON = d3.json("https://cdn.rawgit.com/lovebed/securityUrls/master/security.json", function(error, treeData) {
 
     // Calculate total nodes, max label length
     var totalNodes = 0;
